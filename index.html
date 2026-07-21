@@ -28,7 +28,7 @@
       position: relative;
       width: 100%;
       min-height: 100vh;
-      padding: 35px 20px 30px 20px;
+      padding: 35px 15px 30px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -87,7 +87,7 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      transform: scale(1.6); /* Maximum Zoom so logo text is big and clear */
+      transform: scale(1.6);
       display: block;
     }
 
@@ -96,27 +96,29 @@
       50% { transform: translateY(-8px); }
     }
 
-    /* Brand Header Block (Mobile Friendly Alignment) */
+    /* Brand Header Block (Fixed Single Line Fitting) */
     .brand-header-block {
       text-align: center;
       width: 100%;
-      max-width: 320px;
       margin-bottom: 24px;
     }
 
     .brand-title {
-      font-size: 1.45rem;
+      font-size: clamp(1.05rem, 5.2vw, 1.45rem); /* Auto scaling for small mobile screens */
       font-weight: 800;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.3px;
       text-transform: uppercase;
       color: #111111;
-      line-height: 1.25;
+      white-space: nowrap; /* Prevents glitter from jumping to the next line */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       margin-bottom: 6px;
     }
 
     .sparkle-line {
-      font-size: 1.1rem;
-      margin: 0 4px;
+      font-size: 1rem;
       display: inline-block;
       animation: sparkleGlow 2s ease-in-out infinite alternate;
     }
@@ -127,7 +129,7 @@
     }
 
     .brand-subtitle {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: #666666;
       line-height: 1.4;
       padding: 0 10px;
@@ -236,7 +238,7 @@
       <img src="logo.png" alt="Shilpam Art & Craft">
     </div>
 
-    <!-- Mobile Adjusted Brand Title & Subtitle -->
+    <!-- Perfectly Fitted Mobile Header -->
     <div class="brand-header-block">
       <h1 class="brand-title">
         <span class="sparkle-line">✨</span>
