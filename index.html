@@ -108,10 +108,25 @@
       line-height: 1.15;
     }
     .brand-underline{
-      display:block;
-      width: 128px;
-      height: 10px;
-      margin: 8px auto 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      width: 100%;
+      margin: 10px auto 12px;
+    }
+    .brand-underline i{
+      font-size: 0.85rem;
+      color: var(--maroon);
+    }
+    .brand-underline i:nth-child(3){ color: var(--gold); }
+    .brand-underline i:nth-child(4){ color: var(--teal); }
+    .underline-line{
+      flex: 1;
+      max-width: 34px;
+      height: 1.5px;
+      background-image: linear-gradient(to right, var(--stitch) 0, var(--stitch) 4px, transparent 4px, transparent 8px);
+      background-size: 8px 100%;
     }
     /* ---------- Social row ---------- */
     .social-row{
@@ -302,9 +317,13 @@
 
     <div class="brand-block">
       <h1 class="brand-title">Shilpam Art &amp; Craft</h1>
-      <svg class="brand-underline" viewBox="0 0 128 10" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2 6 C 20 -1, 40 12, 64 5 C 88 -2, 108 12, 126 5" fill="none" stroke="#D99A2B" stroke-width="3" stroke-linecap="round"/>
-      </svg>
+      <div class="brand-underline">
+        <span class="underline-line"></span>
+        <i class="fa-solid fa-paintbrush"></i>
+        <i class="fa-solid fa-scissors"></i>
+        <i class="fa-solid fa-palette"></i>
+        <span class="underline-line"></span>
+      </div>
     </div>
 
     <div class="social-row">
