@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
 
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ESPZG2H7JB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ESPZG2H7JB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-ESPZG2H7JB');
-</script>
-  <meta name="google-site-verification" content="Tp0eaDgM-3kyRJ5pus4-6kOIAxn46-nWcM-LZ1xLm88" />
+    gtag('config', 'G-ESPZG2H7JB');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#7A2048">
+  <meta name="google-site-verification" content="Tp0eaDgM-3kyRJ5pus4-6kOIAxn46-nWcM-LZ1xLm88" />
+
   <title>Shilpam Art & Craft</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -398,8 +400,17 @@
   </div>
 
   <script>
+    // Ripple effect & Google Analytics tracking for social buttons
     document.querySelectorAll('.social-btn').forEach(function(btn){
       btn.addEventListener('click', function(e){
+        // GA Event Tracking
+        if (typeof gtag === 'function') {
+          gtag('event', 'click', {
+            'event_category': 'Social Button',
+            'event_label': btn.getAttribute('title') || btn.getAttribute('aria-label')
+          });
+        }
+
         var surface = btn.querySelector('.btn-surface');
         var icon = btn.querySelector('i');
         var rect = btn.getBoundingClientRect();
@@ -419,6 +430,19 @@
         icon.classList.remove('icon-pop');
         void icon.offsetWidth; /* restart animation */
         icon.classList.add('icon-pop');
+      });
+    });
+
+    // Google Analytics tracking for Store Map clicks
+    document.querySelectorAll('.store-card').forEach(function(card){
+      card.addEventListener('click', function(){
+        if (typeof gtag === 'function') {
+          var storeName = card.querySelector('.store-name') ? card.querySelector('.store-name').innerText : 'Store Link';
+          gtag('event', 'click', {
+            'event_category': 'Store Location',
+            'event_label': storeName
+          });
+        }
       });
     });
   </script>
